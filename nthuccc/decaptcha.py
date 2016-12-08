@@ -8,6 +8,7 @@ import time
 
 from sklearn import svm, preprocessing, pipeline
 from scipy.misc import imread
+from nthuccc import NTHUCCCU
 import numpy
 
 
@@ -90,8 +91,10 @@ def decaptcha(pipelines, name):
     return '{}{}{}'.format(r0[0], r1[0], r2[0])
 
 
-class DecaptchaFailure(Exception):
-    pass
+class DecaptchaFailure(NTHUCCCU):
+    '''
+    Failing to decaptcha
+    '''
 
 
 def get(pipelines, form_url=_DEFAULT_URL, _verify=True):
